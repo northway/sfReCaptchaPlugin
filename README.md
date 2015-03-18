@@ -16,21 +16,20 @@ Git submodule update:
 
 ### Install
 
-ProjectConfiguration.class.php:
+You need to add this line to ProjectConfiguration.class.php:
 
     $this->enablePlugins('sfReCaptchaPlugin');
 
-Symfony cache clear:
+Then a Symfony cache clear:
 
 		$ php symfony cc
 
 ### Usage
 
-In a form class:
+You can use the widget and validator like this in a form class:
 
-		$this->widgetSchema['secret'] = new sfWidgetFormGoogleRecaptcha(array(
-        'public_key' => 'MY_PUBLIC_KEY',
-        'theme' => 'clean'));
+		$this->widgetSchema['secret'] = new sfWidgetFormGoogleRecaptcha(
+				array('public_key' => 'MY_PUBLIC_KEY', 'theme' => 'clean'));
 
 		$this->validatorSchema['secret'] = new sfValidatorGoogleRecaptcha(
 				array('private_key' => 'MY_PRIVATE_KEY'),
