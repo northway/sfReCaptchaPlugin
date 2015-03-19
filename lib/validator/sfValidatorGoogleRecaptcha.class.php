@@ -9,11 +9,17 @@ class sfValidatorGoogleRecaptcha extends sfValidatorBase {
 
   public function configure($options = array(), $messages = array()) {
     $this->addOption('private_key');
+    $this->addOption('proxy', false);
   }
 
   public function doClean($value) {
 
     $recaptcha = new GoogleReCaptcha();
+    
+    if($this->getOption('proxy')) {
+      $recaptcha->use_proxy();
+    }
+    
     $response = $recaptcha->recaptcha_check_answer(
             $this->getOption('private_key'), $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]
     );
