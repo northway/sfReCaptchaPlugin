@@ -40,12 +40,12 @@ You can use the widget and validator like this in a form class:
 
 app.yml (default port is 80, username and password is optional):
 
-  all:
-    recaptcha:
-      proxy_host: SERVER ADDRESS
-      proxy_port: SERVER PORT
-      proxy_username: USERNAME
-      proxy_password: PASSWORD
+    all:
+      recaptcha:
+        proxy_host: SERVER ADDRESS
+        proxy_port: SERVER PORT
+        proxy_username: USERNAME
+        proxy_password: PASSWORD
 
 validator config:
 
